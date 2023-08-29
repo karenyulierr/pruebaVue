@@ -6,10 +6,11 @@ defineProps({
         required: true
     }
 })
+defineEmits(['open-modal'])
 </script>
 
 <template>
-    <div class="card">
+    <div class="card" @click="$emit('open-modal',movies.id)">
         <div class="overflow-hidden">
             <img :src="'https://image.tmdb.org/t/p/w500' + movies.poster_path" class="card-img-top my-element"
                 alt="Movie Poster">
