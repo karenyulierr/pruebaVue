@@ -1,11 +1,15 @@
 <script setup>
 import { RouterView } from "vue-router";
 import Header from "./components/Header.vue";
+import Filtros from "./components/Filtros.vue";
+import Footer from "./components/Footer.vue";
 </script>
 
 <template>
   <Header />
-  <!-- <main class="container mx-auto mt-10 p-3 mb-2 bg-primary text-white">
+  <Filtros />
+  <main class="container">
     <RouterView />
-  </main> -->
+  </main>
+  <Footer />
 </template>

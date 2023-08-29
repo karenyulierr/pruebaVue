@@ -45,9 +45,11 @@
 </template>
 <style>
 .header {
-  background-image: url("/img/bg.jpg");
+  background-image: url("/img/bg.png");
   background-size: cover;
   background-position: center;
-  height:800px;
+  background-repeat: no-repeat; /* Evita la repetición de la imagen */
+  height: 85vh;
+  width: 100%;
 }
 </style>
