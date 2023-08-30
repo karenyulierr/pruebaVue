@@ -4,21 +4,21 @@ import { useTmdbApi } from "../stores/peliculas";
 import CardPelicula from "../components/CardPelicula.vue";
 import Modal from "../components/Modal.vue";
 
-const { fetchMovies } = useTmdbApi();
+const { fetchMovies, fetchMovieDetails } = useTmdbApi();
 const movies = ref([]);
-const show = ref(false);
+const idMovie = ref([]);
 const fetchData = async () => {
   try {
     const data = await fetchMovies();
     movies.value = data.results;
   } catch (error) {
-    // Manejo de errores si es necesario
+    console.log("error al cargar los datos");
   }
 };
-const openModal = (id) => {
+const openModal = async (id) => {
   if (id) {
-    show.value = true;
-    console.log("soy el modal desde inicioView", id);
+    idMovie.value = await fetchMovieDetails(id); 
+    console.log(idMovie.value);
   }
 };
 onMounted(fetchData);
@@ -33,8 +33,8 @@ onMounted(fetchData);
         </div>
       </div>
     </div>
-    <Modal :show="show" />
   </div>
+  <Modal :idMovie="idMovie" />
 </template>
 
 

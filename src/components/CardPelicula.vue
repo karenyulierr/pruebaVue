@@ -10,7 +10,7 @@ defineEmits(['open-modal'])
 </script>
 
 <template>
-    <div class="card" @click="$emit('open-modal',movies.id)">
+    <div class="card" data-bs-toggle='modal' data-bs-target='#exampleModal' @click="$emit('open-modal', movies.id)">
         <div class="overflow-hidden">
             <img :src="'https://image.tmdb.org/t/p/w500' + movies.poster_path" class="card-img-top my-element"
                 alt="Movie Poster">
@@ -43,4 +43,5 @@ defineEmits(['open-modal'])
         transform: scale(1.05) rotate(2deg);
         /* Escala y rotación en hover */
     }
-}</style>
+}
+</style>
